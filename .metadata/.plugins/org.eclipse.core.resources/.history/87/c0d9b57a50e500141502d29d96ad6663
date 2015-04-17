@@ -1,0 +1,149 @@
+package smms;
+
+import java.sql.*;
+
+public class Querries extends SMMS{
+	public void query_1() throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL" +" FROM MOVIES M " + "ORDER BY M.rtAudienceScore desc " + "limit 20;";
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+	//this one needs fixing not gettting all tags associated with movie
+	public void query_2(String Movie_Title_Input) throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL, T.id " +"FROM MOVIES M, MOVIE_TAGS MT, TAGS T ";
+		query += "WHERE T.id=MT.movieID and MT.movieID=M.id and M.title=" + Movie_Title_Input + " GROUP BY M.title;";
+		
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			String tags = rs.getString("values");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+			System.out.println("Tags: " + tags);
+		}
+	}
+	public void query_3(String Genre_Type_Input) throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL " +"FROM MOVIES M, MOVIE_GENRES MG ";
+		query += "WHERE MG.genre="+ Genre_Type_Input+" and M.id=MG.movieID " + "ORDER BY M.rtAudienceScore desc " +"limit 20;";
+		
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+	public void query_4(String Director_Name_Input) throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL " + "FROM MOVIES M, MOVIE_DIRECTORS MD ";
+		query += "WHERE MD.directorName=" + Director_Name_Input + " and M.id=MD.movieID;";
+		
+		ResultSet rs = stmt.executeQuery(query);
+		
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+	public void query_5(String Actor_Name_Input) throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL " + "FROM MOVIES M, MOVIE_DIRECTORS MD ";
+		query += "WHERE MD.directorName=" + Actor_Name_Input + " and M.id=MD.movieID;";
+		
+		ResultSet rs = stmt.executeQuery(query);
+		
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+	public void query_6(String Actor_Name_Input) throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL " + "FROM MOVIES M, MOVIE_DIRECTORS MD ";
+		query += "WHERE MD.directorName=" + Actor_Name_Input + " and M.id=MD.movieID;";
+		
+		ResultSet rs = stmt.executeQuery(query);
+		
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+	
+}

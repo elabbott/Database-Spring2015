@@ -1,0 +1,27 @@
+package smms;
+
+import java.sql.*;
+
+public class Querries extends SMMS{
+	public void query_1() throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL" +" FROM MOVIES M " + "ORDER BY M.rtAudienceScore desc " + "limit 20;";
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			//get values
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+			
+			//display values
+			System.out.println("Title: " + title);
+			System.out.println("Year: " + year);
+			System.out.println("Audience Score: " + rtAudienceScore);
+			System.out.println("PictureURL: " + rtPictureURL);
+			System.out.println("IMDBPictureURL: " + imdbPictureURL);
+		}
+	}
+}

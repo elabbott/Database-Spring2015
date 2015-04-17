@@ -1,0 +1,29 @@
+package smms;
+import java.sql.*;
+
+public class SMMS {
+	static final String JDBC_DRIVER = "com.sql.jdbc.Driver";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/root";
+	public SMMS(){
+		
+	}
+	// so every time we open a connection all we have to do is 'Connection con = openConnection();'
+	private Connection openConnection() throws SQLException, ClassNotFoundException{
+		Class.forName(JDBC_DRIVER);
+		Connection con = DriverManager.getConnection(DB_URL, "root", "root");
+		return con;
+	}
+	private void query_1() throws ClassNotFoundException, SQLException{
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL" +" FROM MOVIES M " + "ORDER BY M.rtAudienceScore desc " + "limit 20;";
+		ResultSet rs = stmt.executeQuery(query);
+		while(rs.next()){
+			String title = rs.getString("title");
+			int year = rs.getInt("year");
+			int rtAudienceScore = rs.getInt("rtAudienceScore");
+			String rtPictureURL = rs.getString("rtPictureURL");
+			String imdbPictureURL = rs.getString("rtPictureURL");
+		}
+	}
+}
