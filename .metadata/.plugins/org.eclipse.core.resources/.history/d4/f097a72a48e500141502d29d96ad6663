@@ -17,5 +17,7 @@ public class SMMS {
 		Statement stmt = null;
 		Connection con = openConnection();
 		
+		stmt = con.createStatement();
+		
 	}
 }

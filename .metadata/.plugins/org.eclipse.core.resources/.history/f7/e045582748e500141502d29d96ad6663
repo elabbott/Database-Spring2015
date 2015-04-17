@@ -13,9 +13,11 @@ public class SMMS {
 		Connection con = DriverManager.getConnection(DB_URL, "root", "root");
 		return con;
 	}
-	private void populateDBTables() throws ClassNotFoundException, SQLException{
+	private void populateDBTable() throws ClassNotFoundException, SQLException{
 		Statement stmt = null;
 		Connection con = openConnection();
+		
+		stmt = con.createStatement();
 		
 	}
 }
