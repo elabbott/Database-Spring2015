@@ -7,7 +7,6 @@ public class SMMS {
 	public SMMS(){
 		
 	}
-	// so every time we open a connection all we have to do is 'Connection con = openConnection();'
 	private Connection openConnection() throws SQLException, ClassNotFoundException{
 		Class.forName(JDBC_DRIVER);
 		Connection con = DriverManager.getConnection(DB_URL, "root", "root");

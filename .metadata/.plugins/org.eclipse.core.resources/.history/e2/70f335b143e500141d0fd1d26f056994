@@ -1,0 +1,13 @@
+package smms;
+import java.sql.*;
+
+public class SMMS {
+
+	public SMMS(){
+		
+	}
+	private Connection openConnection() throws SQLException{
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/root", "root", "root");
+		return con;
+	}
+}
