@@ -8,6 +8,18 @@ create table MOVIES (
     imdbPictureURL	char(30) 	not null,
     year 	int		not null,
     rtID	char(30),
+	rtAllCriticsRating int,
+	rtAllCriticsNumReviews int,
+	rtAllCriticsNumFresh int,
+	rtAllCriticsNumRotten int,
+	rtAllCriticsScore int,
+	rtTopCriticsRating int,
+	rtTopCriticsNumReviews int,
+	rtTopCriticsNumFresh int,
+	rtTopCriticsNumRotten int,
+	rtTopCriticsScore int,
+	rtAudienceRating int,
+	rtAudienceNumRatings  int,
     rtAudienceScore 	int,
     rtPictureURL	char(50),
     PRIMARY KEY (id)
@@ -113,3 +125,15 @@ create table USER_TAGGEDMOVIES_TIMESTAMPS(
     FOREIGN KEY (movieID) references MOVIES (id),
     FOREIGN KEY (tagID) references TAGS (id)
 );
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movies.dat' INTO TABLE MOVIES;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/tags.dat' INTO TABLE TAGS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_actors.dat' INTO TABLE MOVIE_ACTORS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_countries.dat' INTO TABLE MOVIE_COUNTRIES;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_directors.dat' INTO TABLE MOVIE_DIRECTORS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_genres.dat' INTO TABLE MOVIE_GENRES;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_locations.dat' INTO TABLE MOVIE_LOCATIONS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/movie_tags.dat' INTO TABLE MOVIE_TAGS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/user_ratedmovies-timestamps.dat' INTO TABLE USER_RATEDMOVIES_TIMESTAMPS;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/user_ratedmovies.dat' INTO TABLE USER_RATEDMOVIES;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/user_taggedmovies.dat' INTO TABLE USER_TAGGEDMOVIES;
+LOAD DATA local INFILE '/home/eric/Documents/School/Spring-2015/Database/programming project/SMMS/Rotten Tomatos Dataset/user_taggedmovies-timestamps.dat' INTO TABLE USER_TAGGEDMOVIES_TIMESTAMPS;

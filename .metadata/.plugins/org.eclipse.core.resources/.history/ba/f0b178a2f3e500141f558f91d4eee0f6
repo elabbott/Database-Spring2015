@@ -32,8 +32,8 @@ public class Querries extends SMMS{
 	public String query_2(String Movie_Title_Input) throws ClassNotFoundException, SQLException{
 		Connection con = openConnection();
 		Statement stmt = con.createStatement();
-		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL, T.value " +"FROM MOVIES M, MOVIE_TAGS MT, TAGS T ";
-		query += "WHERE T.id=MT.tagID and MT.movieID=M.id and M.title=" + Movie_Title_Input + " GROUP BY M.title;";
+		String query = "SELECT M.title, M.year, M.rtAudienceScore, M.rtPictureURL, M.imdbPictureURL, T.id " +"FROM MOVIES M, MOVIE_TAGS MT, TAGS T ";
+		query += "WHERE T.id=MT.movieID and MT.movieID=M.id and M.title=" + Movie_Title_Input + " GROUP BY M.title;";
 		
 		ResultSet rs = stmt.executeQuery(query);
 		String result = "";

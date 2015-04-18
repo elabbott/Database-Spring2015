@@ -1,0 +1,41 @@
+package smms;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+
+public class GUI extends Querries{
+
+	public GUI(){
+		JFrame guiFrame1 = new JFrame();
+		guiFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		guiFrame1.setTitle("Space Monkey Movie Service");
+		guiFrame1.setSize(300,250);
+		guiFrame1.setLocationRelativeTo(null);
+		
+		JPanel pane1 = new JPanel();
+		
+		JButton btnQ1 = null, btnQ2, btnQ3, btnQ4, btnQ5, btnQ6, btnQ7, btnQ8, btnQ9, btnQ10, btnReset;
+		JTextField txtSearch;
+		final JTextField txtResult = null;
+				
+		btnQ1.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    try {
+					String query1 = query_1();
+					txtResult.setText(query1);
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			    
+			  } 
+			} );
+		
+	}
+}

@@ -1,0 +1,17 @@
+package smms;
+import javax.swing.*;
+import java.awt.*;
+
+
+public class GUI extends Querries{
+
+	public GUI(){
+		JFrame guiFrame1 = new JFrame();
+		guiFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		guiFrame1.setTitle("Space Monkey Movie Service");
+		guiFrame1.setSize(300,250);
+		guiFrame1.setLocationRelativeTo(null);
+		
+			
+	}
+}

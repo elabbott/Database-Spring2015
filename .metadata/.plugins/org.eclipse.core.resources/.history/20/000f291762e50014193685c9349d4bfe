@@ -1,0 +1,51 @@
+package smms;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+
+public class GUI extends Querries{
+
+	public GUI(){
+		JFrame guiFrame1 = new JFrame();
+		guiFrame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		guiFrame1.setTitle("Space Monkey Movie Service");
+		guiFrame1.setSize(300,250);
+		guiFrame1.setLocationRelativeTo(null);
+		
+		JPanel pane1 = new JPanel();
+		
+		JButton btnQ1 = new JButton("Query 1");
+		JButton btnQ2 = new JButton("Query 2");
+		JButton btnQ3 = new JButton("Query 3");
+		JButton btnQ4 = new JButton("Query 4");
+		JButton btnQ5 = new JButton("Query 5");
+		JButton btnQ6 = new JButton("Query 6");
+		JButton btnQ7 = new JButton("Query 7");
+		JButton btnQ8 = new JButton("Query 8");
+		JButton btnQ9 = new JButton("Query 9");
+		JButton btnQ10 = new JButton("Query 10");
+		
+		JTextField txtSearch;
+		final JTextField txtResult = null;
+				
+		btnQ1.addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    try {
+					String query1 = query_1();
+					txtResult.setText(query1);
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			    
+			  } 
+			} );
+		
+	}
+}
