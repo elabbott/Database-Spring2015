@@ -28,7 +28,6 @@ public class Querries extends SMMS{
 		}
 		return result;
 	}
-	//this one needs fixing not getting all tags associated with movie
 	public String query_2(String Movie_Title_Input) throws ClassNotFoundException, SQLException{
 		Connection con = openConnection();
 		Statement stmt = con.createStatement();
